@@ -17,6 +17,8 @@
         <!--[if lt IE 9]>
             <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
             <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+            <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
         <![endif]-->
 
         {{-- Fonts --}}
@@ -24,6 +26,7 @@
 
         {{-- Styles --}}
         <link href="{{ mix('/css/app.css') }}" rel="stylesheet">
+        <link href="{{ mix('/css/all.css') }}" rel="stylesheet">
 
         @yield('template_linked_css')
 
@@ -76,7 +79,11 @@
 
         {{-- Scripts --}}
         <script src="{{ mix('/js/app.js') }}"></script>
+        <script src="{{ mix('/js/all.js') }}"></script>
 
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/signature_pad@2.3.2/dist/signature_pad.min.js"></script>
         @if(config('settings.googleMapsAPIStatus'))
             {!! HTML::script('//maps.googleapis.com/maps/api/js?key='.config("settings.googleMapsAPIKey").'&libraries=places&dummy=.js', array('type' => 'text/javascript')) !!}
         @endif

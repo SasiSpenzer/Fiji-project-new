@@ -4,12 +4,16 @@ namespace App\Http\Controllers;
 
 use Auth;
 
+/*
+ * Sasi Spenzer 2019
+ */
+
 class UserController extends Controller
 {
     /**
      * Create a new controller instance.
      *
-     * @return void
+     * @return v
      */
     public function __construct()
     {

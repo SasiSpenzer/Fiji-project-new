@@ -2,7 +2,7 @@
 
 return [
 
-    'app'               => 'Laravel',
+    'app'               => 'Vessel Operations',
     'app2'              => 'Auth :version',
     'home'              => 'Home',
     'login'             => 'Login',
@@ -13,7 +13,7 @@ return [
     'profile'           => 'Profile',
     'editProfile'       => 'Edit Profile',
     'createProfile'     => 'Create Profile',
-    'adminDropdownNav'  => 'Admin',
+    'adminDropdownNav'  => 'Admin User',
 
     'activation'        => 'Registration Started  | Activation Required',
     'exceeded'          => 'Activation Error',

@@ -28,33 +28,41 @@
                                 {!! trans('titles.adminNewUser') !!}
                             </a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item {{ Request::is('themes','themes/create') ? 'active' : null }}" href="{{ url('/themes') }}">
-                                {!! trans('titles.adminThemesList') !!}
+                            <a class="dropdown-item {{ Request::is('monthly-shipping-schedule') ? 'active' : null }}" href="{{ url('/Monthly-shipping-schedule') }}">
+                                Monthly Shipping Schedule
                             </a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item {{ Request::is('logs') ? 'active' : null }}" href="{{ url('/logs') }}">
-                                {!! trans('titles.adminLogs') !!}
+                            <a class="dropdown-item {{ Request::is('Vessel-Berthing-Application') ? 'active' : null }}" href="{{ url('/Vessel-Berthing-Application') }}">
+                                Vessel Berthing Application
                             </a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item {{ Request::is('activity') ? 'active' : null }}" href="{{ url('/activity') }}">
-                                {!! trans('titles.adminActivity') !!}
-                            </a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item {{ Request::is('phpinfo') ? 'active' : null }}" href="{{ url('/phpinfo') }}">
-                                {!! trans('titles.adminPHP') !!}
-                            </a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item {{ Request::is('routes') ? 'active' : null }}" href="{{ url('/routes') }}">
-                                {!! trans('titles.adminRoutes') !!}
-                            </a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item {{ Request::is('active-users') ? 'active' : null }}" href="{{ url('/active-users') }}">
-                                {!! trans('titles.activeUsers') !!}
-                            </a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item {{ Request::is('blocker') ? 'active' : null }}" href="{{ route('laravelblocker::blocker.index') }}">
-                                {!! trans('titles.laravelBlocker') !!}
-                            </a>
+{{--                            <div class="dropdown-divider"></div>--}}
+{{--                            <a class="dropdown-item {{ Request::is('themes','themes/create') ? 'active' : null }}" href="{{ url('/themes') }}">--}}
+{{--                                {!! trans('titles.adminThemesList') !!}--}}
+{{--                            </a>--}}
+{{--                            <div class="dropdown-divider"></div>--}}
+{{--                            <a class="dropdown-item {{ Request::is('logs') ? 'active' : null }}" href="{{ url('/logs') }}">--}}
+{{--                                {!! trans('titles.adminLogs') !!}--}}
+{{--                            </a>--}}
+{{--                            <div class="dropdown-divider"></div>--}}
+{{--                            <a class="dropdown-item {{ Request::is('activity') ? 'active' : null }}" href="{{ url('/activity') }}">--}}
+{{--                                {!! trans('titles.adminActivity') !!}--}}
+{{--                            </a>--}}
+{{--                            <div class="dropdown-divider"></div>--}}
+{{--                            <a class="dropdown-item {{ Request::is('phpinfo') ? 'active' : null }}" href="{{ url('/phpinfo') }}">--}}
+{{--                                {!! trans('titles.adminPHP') !!}--}}
+{{--                            </a>--}}
+{{--                            <div class="dropdown-divider"></div>--}}
+{{--                            <a class="dropdown-item {{ Request::is('routes') ? 'active' : null }}" href="{{ url('/routes') }}">--}}
+{{--                                {!! trans('titles.adminRoutes') !!}--}}
+{{--                            </a>--}}
+{{--                            <div class="dropdown-divider"></div>--}}
+{{--                            <a class="dropdown-item {{ Request::is('active-users') ? 'active' : null }}" href="{{ url('/active-users') }}">--}}
+{{--                                {!! trans('titles.activeUsers') !!}--}}
+{{--                            </a>--}}
+{{--                            <div class="dropdown-divider"></div>--}}
+{{--                            <a class="dropdown-item {{ Request::is('blocker') ? 'active' : null }}" href="{{ route('laravelblocker::blocker.index') }}">--}}
+{{--                                {!! trans('titles.laravelBlocker') !!}--}}
+{{--                            </a>--}}
                         </div>
                     </li>
                 @endrole
