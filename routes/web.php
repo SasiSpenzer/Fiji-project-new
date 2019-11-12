@@ -99,11 +99,25 @@ Route::group(['middleware' => ['auth', 'activated', 'currentUser', 'activity', '
 
 // Registered, activated, and is admin routes.
 Route::group(['middleware' => ['auth', 'activated', 'role:admin', 'activity', 'twostep', 'checkblocked']], function () {
+
+
     Route::resource('/users/deleted', 'SoftDeletesController', [
         'only' => [
             'index', 'show', 'update', 'destroy',
         ],
+
+
     ]);
+
+    // Shipping Routes
+
+    Route::get('Monthly-shipping-schedule', 'ShippingController@MonthlyShippingSchedule')->name('shipping.monthlyShipping');
+    Route::get('Vessel-Berthing-Application', 'ShippingController@VesselBreathingApp')->name('vessel.breathing');
+
+
+
+
+    Route::post('Monthly-shipping-schedule', 'ShippingController@MonthlyShippingScheduleStore')->name('shipping.store');
 
     Route::resource('users', 'UsersManagementController', [
         'names' => [

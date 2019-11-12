@@ -10,43 +10,123 @@
 @endphp
 
 <div class="card">
-    <div class="card-header @role('admin', true) bg-secondary text-white @endrole">
+{{--    <div class="card-header @role('admin', true) bg-secondary text-white @endrole">--}}
 
-        Welcome {{ Auth::user()->name }}
+{{--        Welcome {{ Auth::user()->name }}--}}
 
-        @role('admin', true)
-            <span class="pull-right badge badge-primary" style="margin-top:4px">
-                Admin Access
-            </span>
-        @else
-            <span class="pull-right badge badge-warning" style="margin-top:4px">
-                User Access
-            </span>
-        @endrole
+{{--        @role('admin', true)--}}
+{{--            <span class="pull-right badge badge-primary" style="margin-top:4px">--}}
+{{--                Admin Access--}}
+{{--            </span>--}}
+{{--        @else--}}
+{{--            <span class="pull-right badge badge-warning" style="margin-top:4px">--}}
+{{--                User Access--}}
+{{--            </span>--}}
+{{--        @endrole--}}
 
-    </div>
+{{--    </div>--}}
     <div class="card-body">
         <h2 class="lead">
             {{ trans('auth.loggedIn') }}
         </h2>
-        <p>
-            <em>Thank you</em> for checking this project out. <strong>Please remember to star it!</strong>
-        </p>
-        <p>
-            <iframe src="https://ghbtns.com/github-btn.html?user=jeremykenedy&repo=laravel-auth&type=star&count=true" frameborder="0" scrolling="0" width="170px" height="20px" style="margin: 0px 0 -3px .5em;"></iframe>
-        </p>
-        <p>
-            This page route is protected by <code>activated</code> middleware. Only accounts with activated emails are able pass this middleware.
-        </p>
-        <p>
-            <small>
-                Users registered via Social providers are by default activated.
-            </small>
-        </p>
+        <div class="mb-3">
+            <div style="background-color: #6c757d" class="card-deck">
+                <div class="card card-inverse card-success text-center">
+                    <div class="card-body">
+                        <blockquote class="card-blockquote">
+                            <h5>Agents Monthly Shipping Schedule</h5>
+
+                        </blockquote>
+                    </div>
+                </div>
+                <div class="card card-inverse card-success text-center">
+                    <div class="card-body">
+                        <blockquote class="card-blockquote">
+                            <h5>Vessel Berthing Application</h5>
+
+                        </blockquote>
+                    </div>
+                </div>
+                <div class="card card-inverse card-success text-center">
+                    <div class="card-body">
+                        <blockquote class="card-blockquote">
+                            <h5>Cargo Status Change Request</h5>
+
+                        </blockquote>
+                    </div>
+                </div>
+                <div class="card card-inverse card-success text-center">
+                    <div class="card-body">
+                        <blockquote class="card-blockquote">
+                            <h5>Port Of Discharge Change Request</h5>
+
+                        </blockquote>
+                    </div>
+                </div>
+
+            </div>
+            <br>
+
+            <div style="background-color: #6c757d" class="card-deck">
+                <div class="card card-inverse card-success text-center">
+                    <div class="card-body">
+                        <blockquote class="card-blockquote">
+                            <h5>Reefer Unplugging Request</h5>
+
+                        </blockquote>
+                    </div>
+                </div>
+                <div class="card card-inverse card-success text-center">
+                    <div class="card-body">
+                        <blockquote class="card-blockquote">
+                            <h5>Domestic Reefer Plugging Request</h5>
+
+                        </blockquote>
+                    </div>
+                </div>
+
+                <div class="card card-inverse card-success text-center">
+                    <div class="card-body">
+                        <blockquote class="card-blockquote">
+                            <h5>Cargo Receiving Request</h5>
+
+                        </blockquote>
+                    </div>
+                </div>
+                <div class="card card-inverse card-success text-center">
+                    <div class="card-body">
+                        <blockquote class="card-blockquote">
+                            <h5>On Carrier Change Request</h5>
+
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="background-color: #6c757d" class="card-deck">
+            <div class="card card-inverse card-success text-center">
+                <div class="card-body">
+                    <blockquote class="card-blockquote">
+                        <h5>Berthing Window application</h5>
+
+                    </blockquote>
+                </div>
+            </div>
+            <div class="card card-inverse card-success text-center">
+                <div class="card-body">
+                    <blockquote class="card-blockquote">
+                        <h5>Vessel Deposit Form</h5>
+
+                    </blockquote>
+                </div>
+            </div>
+
+        </div>
+    </div>
 
         <hr>
 
-        <p>
+        <p style="margin-left: 20px;">
             You have
                 <strong>
                     @role('admin')
@@ -61,7 +141,7 @@
 
         <hr>
 
-        <p>
+        <p style="margin-left: 20px;">
             You have access to {{ $levelAmount }}:
             @level(5)
                 <span class="badge badge-primary margin-half">5</span>
@@ -88,7 +168,7 @@
 
             <hr>
 
-            <p>
+            <p style="margin-left: 20px;">
                 You have permissions:
                 @permission('view.users')
                     <span class="badge badge-primary margin-half margin-left-0">
