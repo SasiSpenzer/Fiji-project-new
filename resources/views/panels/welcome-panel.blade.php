@@ -214,9 +214,8 @@
 @endphp
 
 @role('admin')
-<div class="main-panel">
-    <div class="content-wrapper">
-        <div class="dashboard-header d-flex flex-column grid-margin">
+
+        <div style="margin-top: 20px;" class="dashboard-header d-flex flex-column grid-margin">
             <div class="d-flex align-items-center justify-content-between flex-wrap border-bottom pb-3 mb-3">
                 <div class="d-flex align-items-center">
                     <h4 class="mb-0 font-weight-bold">Welcome &nbsp;</h4>
@@ -292,13 +291,14 @@
         </div>
 
     </div>
+
     <!-- content-wrapper ends -->
     <!-- partial:partials/_footer.html -->
 @include("layouts.footer")
 <!-- partial -->
 </div>
 <!-- partial -->
-</div>
+
 
 @endrole
 
@@ -3822,7 +3822,7 @@
 <!-- partial -->
 </div>
 <!-- partial -->
-</div>
+
 
 @endrole
 
