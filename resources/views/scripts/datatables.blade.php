@@ -6,7 +6,7 @@
 <script type="text/javascript">
     $(document).ready(function() {
         $('.data-table').dataTable({
-            "paging": true,
+            "paging": false,
             "lengthChange": true,
             "searching": true,
             "ordering": true,
@@ -15,8 +15,8 @@
             "dom": 'T<"clear">lfrtip',
             "sPaginationType": "full_numbers",
             'aoColumnDefs': [{
-                'bSortable': false,
-                'searchable': false,
+                'bSortable': true,
+                'searchable': true,
                 'aTargets': ['no-search'],
                 'bTargets': ['no-sort']
             }]

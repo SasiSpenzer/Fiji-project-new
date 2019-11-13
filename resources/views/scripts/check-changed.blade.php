@@ -16,6 +16,16 @@
   $("input").keyup(function() {
     checkChanged();
   });
+  $("input").click(function() {
+      checkChanged();
+  });
+
+  $( "#end_date" ).datepicker({
+      // dateFormat: 'dd/mm/yyyy',
+      dateFormat: 'yy-mm-dd',
+      changeMonth: true,
+      changeYear: true
+  });
   $("select").change(function() {
     checkChanged();
   });
