@@ -205,6 +205,7 @@
         });
 
         $(function() {
+
             $('input[name="reservation"]').daterangepicker({
 
                 startDate: moment().startOf('hour'),

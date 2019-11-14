@@ -322,136 +322,136 @@
         <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
                 <i class="mdi mdi-source-fork menu-icon"></i>
-                <span class="menu-title">Branch</span>
+                <span class="menu-title">Monthly Shipping</span>
                 <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="ui-basic">
                 <ul class="nav flex-column sub-menu">
-                    <li  class="nav-item"> <a class="nav-link" href="{{ url('/organization/branch') }}">Branches</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="{{ url('/organization/branch/create') }}">Create Branch</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="{{ url('branch-type') }}">Branch Types</a></li>
+                    <li  class="nav-item"> <a class="nav-link" href="{{ url('/Monthly-shipping-schedule') }}">Agents Monthly Shipping Schedule</a></li>
+{{--                    <li class="nav-item"> <a class="nav-link" href="{{ url('/organization/branch/create') }}">Create Branch</a></li>--}}
+{{--                    <li class="nav-item"> <a class="nav-link" href="{{ url('branch-type') }}">Branch Types</a></li>--}}
                 </ul>
             </div>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#ui-advanced" aria-expanded="false" aria-controls="ui-advanced">
-                <i class="mdi mdi-grid-large menu-icon"></i>
-                <span class="menu-title">Divisions</span>
-                <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="ui-advanced">
-                <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="{{ url('/branch-divisions') }}">List Divisions</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="{{ url('/branch-division-create') }}">Create Division</a></li>
-                </ul>
-            </div>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements">
-                <i class="mdi mdi-bookmark-plus-outline menu-icon"></i>
-                <span class="menu-title">Facilities</span>
-                <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="form-elements">
-                <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"><a class="nav-link" href="{{ url('/branch-facilities') }}">List Facilities</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ url('/branch-facility-create') }}">Create Facility</a></li>
-                </ul>
-            </div>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements">
-                <i class="mdi mdi-office-building menu-icon"></i>
-                <span class="menu-title">Floors</span>
-                <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="form-elements">
-                <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"><a class="nav-link" href="{{ url('/create-floor') }}">Create Floors</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ url('/list-floors') }}">List Floors</a></li>
-                </ul>
-            </div>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#editors" aria-expanded="false" aria-controls="editors">
-                <i class="mdi mdi-shape-polygon-plus menu-icon"></i>
-                <span class="menu-title">Assets</span>
-                <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="editors">
-                <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"><a class="nav-link" href="{{ url('/branch-asset-create') }}">Create Assets</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ url('/asset-list') }}">List Assets</a></li>
-                </ul>
-            </div>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
-                <i class="mdi mdi-folder-multiple-outline menu-icon"></i>
-                <span class="menu-title">Projects</span>
-                <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="charts">
-                <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="{{ url('/projects/create') }}">Create Project</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="{{ url('/projects') }}">List Projects</a></li>
-                </ul>
-            </div>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="tables">
-                <i class="mdi mdi-account-multiple-outline menu-icon"></i>
-                <span class="menu-title">Teams</span>
-                <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="tables">
-                <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="{{ url('/teams/create') }}">Create Team</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="{{ url('/teams') }}">List Teams</a></li>
-                </ul>
-            </div>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="tables">
-                <i class="mdi mdi-account-multiple-outline menu-icon"></i>
-                <span class="menu-title">Users</span>
-                <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="tables">
-                <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="{{ url('/users') }}">List Users</a></li>
+{{--        <li class="nav-item">--}}
+{{--            <a class="nav-link" data-toggle="collapse" href="#ui-advanced" aria-expanded="false" aria-controls="ui-advanced">--}}
+{{--                <i class="mdi mdi-grid-large menu-icon"></i>--}}
+{{--                <span class="menu-title">Divisions</span>--}}
+{{--                <i class="menu-arrow"></i>--}}
+{{--            </a>--}}
+{{--            <div class="collapse" id="ui-advanced">--}}
+{{--                <ul class="nav flex-column sub-menu">--}}
+{{--                    <li class="nav-item"> <a class="nav-link" href="{{ url('/branch-divisions') }}">List Divisions</a></li>--}}
+{{--                    <li class="nav-item"> <a class="nav-link" href="{{ url('/branch-division-create') }}">Create Division</a></li>--}}
+{{--                </ul>--}}
+{{--            </div>--}}
+{{--        </li>--}}
+{{--        <li class="nav-item">--}}
+{{--            <a class="nav-link" data-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements">--}}
+{{--                <i class="mdi mdi-bookmark-plus-outline menu-icon"></i>--}}
+{{--                <span class="menu-title">Facilities</span>--}}
+{{--                <i class="menu-arrow"></i>--}}
+{{--            </a>--}}
+{{--            <div class="collapse" id="form-elements">--}}
+{{--                <ul class="nav flex-column sub-menu">--}}
+{{--                    <li class="nav-item"><a class="nav-link" href="{{ url('/branch-facilities') }}">List Facilities</a></li>--}}
+{{--                    <li class="nav-item"><a class="nav-link" href="{{ url('/branch-facility-create') }}">Create Facility</a></li>--}}
+{{--                </ul>--}}
+{{--            </div>--}}
+{{--        </li>--}}
+{{--        <li class="nav-item">--}}
+{{--            <a class="nav-link" data-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements">--}}
+{{--                <i class="mdi mdi-office-building menu-icon"></i>--}}
+{{--                <span class="menu-title">Floors</span>--}}
+{{--                <i class="menu-arrow"></i>--}}
+{{--            </a>--}}
+{{--            <div class="collapse" id="form-elements">--}}
+{{--                <ul class="nav flex-column sub-menu">--}}
+{{--                    <li class="nav-item"><a class="nav-link" href="{{ url('/create-floor') }}">Create Floors</a></li>--}}
+{{--                    <li class="nav-item"><a class="nav-link" href="{{ url('/list-floors') }}">List Floors</a></li>--}}
+{{--                </ul>--}}
+{{--            </div>--}}
+{{--        </li>--}}
+{{--        <li class="nav-item">--}}
+{{--            <a class="nav-link" data-toggle="collapse" href="#editors" aria-expanded="false" aria-controls="editors">--}}
+{{--                <i class="mdi mdi-shape-polygon-plus menu-icon"></i>--}}
+{{--                <span class="menu-title">Assets</span>--}}
+{{--                <i class="menu-arrow"></i>--}}
+{{--            </a>--}}
+{{--            <div class="collapse" id="editors">--}}
+{{--                <ul class="nav flex-column sub-menu">--}}
+{{--                    <li class="nav-item"><a class="nav-link" href="{{ url('/branch-asset-create') }}">Create Assets</a></li>--}}
+{{--                    <li class="nav-item"><a class="nav-link" href="{{ url('/asset-list') }}">List Assets</a></li>--}}
+{{--                </ul>--}}
+{{--            </div>--}}
+{{--        </li>--}}
+{{--        <li class="nav-item">--}}
+{{--            <a class="nav-link" data-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">--}}
+{{--                <i class="mdi mdi-folder-multiple-outline menu-icon"></i>--}}
+{{--                <span class="menu-title">Projects</span>--}}
+{{--                <i class="menu-arrow"></i>--}}
+{{--            </a>--}}
+{{--            <div class="collapse" id="charts">--}}
+{{--                <ul class="nav flex-column sub-menu">--}}
+{{--                    <li class="nav-item"> <a class="nav-link" href="{{ url('/projects/create') }}">Create Project</a></li>--}}
+{{--                    <li class="nav-item"> <a class="nav-link" href="{{ url('/projects') }}">List Projects</a></li>--}}
+{{--                </ul>--}}
+{{--            </div>--}}
+{{--        </li>--}}
+{{--        <li class="nav-item">--}}
+{{--            <a class="nav-link" data-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="tables">--}}
+{{--                <i class="mdi mdi-account-multiple-outline menu-icon"></i>--}}
+{{--                <span class="menu-title">Teams</span>--}}
+{{--                <i class="menu-arrow"></i>--}}
+{{--            </a>--}}
+{{--            <div class="collapse" id="tables">--}}
+{{--                <ul class="nav flex-column sub-menu">--}}
+{{--                    <li class="nav-item"> <a class="nav-link" href="{{ url('/teams/create') }}">Create Team</a></li>--}}
+{{--                    <li class="nav-item"> <a class="nav-link" href="{{ url('/teams') }}">List Teams</a></li>--}}
+{{--                </ul>--}}
+{{--            </div>--}}
+{{--        </li>--}}
+{{--        <li class="nav-item">--}}
+{{--            <a class="nav-link" data-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="tables">--}}
+{{--                <i class="mdi mdi-account-multiple-outline menu-icon"></i>--}}
+{{--                <span class="menu-title">Users</span>--}}
+{{--                <i class="menu-arrow"></i>--}}
+{{--            </a>--}}
+{{--            <div class="collapse" id="tables">--}}
+{{--                <ul class="nav flex-column sub-menu">--}}
+{{--                    <li class="nav-item"> <a class="nav-link" href="{{ url('/users') }}">List Users</a></li>--}}
 
-                </ul>
-            </div>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="tables">
-                <i class="mdi mdi-account-multiple-outline menu-icon"></i>
-                <span class="menu-title">Notifications</span>
-                <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="tables">
-                <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="{{ url('/sms_templates') }}">SMS Templates</a></li>
+{{--                </ul>--}}
+{{--            </div>--}}
+{{--        </li>--}}
+{{--        <li class="nav-item">--}}
+{{--            <a class="nav-link" data-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="tables">--}}
+{{--                <i class="mdi mdi-account-multiple-outline menu-icon"></i>--}}
+{{--                <span class="menu-title">Notifications</span>--}}
+{{--                <i class="menu-arrow"></i>--}}
+{{--            </a>--}}
+{{--            <div class="collapse" id="tables">--}}
+{{--                <ul class="nav flex-column sub-menu">--}}
+{{--                    <li class="nav-item"> <a class="nav-link" href="{{ url('/sms_templates') }}">SMS Templates</a></li>--}}
 
-                </ul>
-            </div>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="tables">
-                <i class="mdi mdi-account-multiple-outline menu-icon"></i>
-                <span class="menu-title">Reports</span>
-                <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="tables">
-                <ul class="nav flex-column sub-menu">
-                    <li  class="nav-item"> <a class="nav-link" href="{{ url('/visitor-summary') }}">Visitor Summary Report</a></li>
-                    <li  class="nav-item"> <a class="nav-link" href="{{ url('/visitor-details-report') }}">Visitor Details Report</a></li>
-                    <li  class="nav-item"> <a class="nav-link" href="{{ url('/violation-report') }}">Violation report</a></li>
+{{--                </ul>--}}
+{{--            </div>--}}
+{{--        </li>--}}
+{{--        <li class="nav-item">--}}
+{{--            <a class="nav-link" data-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="tables">--}}
+{{--                <i class="mdi mdi-account-multiple-outline menu-icon"></i>--}}
+{{--                <span class="menu-title">Reports</span>--}}
+{{--                <i class="menu-arrow"></i>--}}
+{{--            </a>--}}
+{{--            <div class="collapse" id="tables">--}}
+{{--                <ul class="nav flex-column sub-menu">--}}
+{{--                    <li  class="nav-item"> <a class="nav-link" href="{{ url('/visitor-summary') }}">Visitor Summary Report</a></li>--}}
+{{--                    <li  class="nav-item"> <a class="nav-link" href="{{ url('/visitor-details-report') }}">Visitor Details Report</a></li>--}}
+{{--                    <li  class="nav-item"> <a class="nav-link" href="{{ url('/violation-report') }}">Violation report</a></li>--}}
 
-                </ul>
-            </div>
-        </li>
+{{--                </ul>--}}
+{{--            </div>--}}
+{{--        </li>--}}
 
 
     </ul>

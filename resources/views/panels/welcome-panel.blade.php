@@ -234,27 +234,27 @@
             <div class="col-md-4 col-sm-6 grid-margin stretch-card">
                 <div class="loader-demo-box">
                     <div class="card-body text-center">
-                        <h1 class="display-4">Branch Manager</h1>
-                        <p class="text-secondary">Manage Your Organization<br>Branches</p>
-                        <a href="organization/branch"><button type="button" class="btn btn-link">Go To Branch Manager</button></a>
+                        <h1 class="display-4">Agents Monthly Shipping Schedule</h1>
+                        <p class="text-secondary">Manage Your Organization<br>Shipping</p>
+                        <a href="organization/branch"><button type="button" class="btn btn-link">Agents Monthly Shipping Schedule</button></a>
                     </div>
                 </div>
             </div>
             <div class="col-md-4 col-sm-6 grid-margin stretch-card">
                 <div class="loader-demo-box">
                     <div class="card-body text-center">
-                        <h1 class="display-4">Division Manager</h1>
-                        <p class="text-secondary">Manage Branch<br>Divisions</p>
-                        <a href="branch-divisions"> <button type="button" class="btn btn-link">Go To Division Manager</button></a>
+                        <h1 class="display-4">Vessel Berthing Application</h1>
+                        <p class="text-secondary">Manage Vessel Berthing</p>
+                        <a href="branch-divisions"> <button type="button" class="btn btn-link">Go To Vessel Berthing Application</button></a>
                     </div>
                 </div>
             </div>
             <div class="col-md-4 col-sm-6 grid-margin stretch-card">
                 <div class="loader-demo-box">
                     <div class="card-body text-center">
-                        <h1 class="display-4">Facility Manager</h1>
-                        <p class="text-secondary">Manage Branch<br>Facilities</p>
-                        <a href="branch-facilities"> <button type="button" class="btn btn-link">Go To Facility Manager</button></a>
+                        <h1 class="display-4"> Cargo Status Change</h1>
+                        <p class="text-secondary">Manage Cargo Status Change Request</p>
+                        <a href="branch-facilities"> <button type="button" class="btn btn-link">Go To Cargo Status Change Request</button></a>
                     </div>
                 </div>
             </div>
@@ -264,27 +264,27 @@
             <div class="col-md-4 col-sm-6 grid-margin stretch-card">
                 <div class="loader-demo-box">
                     <div class="card-body text-center">
-                        <h1 class="display-4">Assets Manager</h1>
-                        <p class="text-secondary">Manage Your Branch<br>Assets</p>
-                        <a href="/asset-list"> <button type="button" class="btn btn-link">Go To Assets Manager</button></a>
+                        <h1 class="display-4">Port Of Discharge Change Request</h1>
+                        <p class="text-secondary">Manage Your Port Of Discharge Change Request</p>
+                        <a href="/asset-list"> <button type="button" class="btn btn-link">Port Of Discharge Change Request</button></a>
                     </div>
                 </div>
             </div>
             <div class="col-md-4 col-sm-6 grid-margin stretch-card">
                 <div class="loader-demo-box">
                     <div class="card-body text-center">
-                        <h1 class="display-4">Projects Manager</h1>
-                        <p class="text-secondary">Manage Your<br>Projects</p>
-                        <a href="/projects">  <button type="button" class="btn btn-link">Go To Projects</button>
+                        <h1 class="display-4">Reefer Unplugging Request</h1>
+                        <p class="text-secondary">Manage Your<br>Reefer Unplugging Request</p>
+                        <a href="/projects">  <button type="button" class="btn btn-link">Go To Reefer Unplugging Request</button>
                     </div>
                 </div>
             </div>
             <div class="col-md-4 col-sm-6 grid-margin stretch-card">
                 <div class="loader-demo-box">
                     <div class="card-body text-center">
-                        <h1 class="display-4">Teams Manager</h1>
-                        <p class="text-secondary">Manage<br>Teams</p>
-                        <a href="/teams" ><button type="button" class="btn btn-link">Go To Teams</button> </a>
+                        <h1 class="display-4">Domestic Reefer Plugging Request</h1>
+                        <p class="text-secondary">Manage<br>Domestic Reefer Plugging Request</p>
+                        <a href="/teams" ><button type="button" class="btn btn-link">Go To Domestic Reefer Plugging Requests</button> </a>
                     </div>
                 </div>
             </div>
