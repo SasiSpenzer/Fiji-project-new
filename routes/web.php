@@ -113,11 +113,21 @@ Route::group(['middleware' => ['auth', 'activated', 'role:admin', 'activity', 't
 
     Route::get('Monthly-shipping-schedule', 'ShippingController@MonthlyShippingSchedule')->name('shipping.monthlyShipping');
     Route::get('Vessel-Berthing-Application', 'ShippingController@VesselBreathingApp')->name('vessel.breathing');
+    Route::get('Status-Change-Request', 'ShippingController@StatusChangeRequest')->name('Status-Change-Request');
+    Route::get('Discharge-Change-Request', 'ShippingController@DischargeChangeRequest')->name('Discharge-Change-Request');
+    Route::get('Reefer-Unplugging-Request', 'ShippingController@ReeferUnpluggingRequest')->name('Reefer-Unplugging-Request');
 
 
 
 
     Route::post('Monthly-shipping-schedule', 'ShippingController@MonthlyShippingScheduleStore')->name('shipping.store');
+    Route::post('Monthly-shipping-schedule-final', 'ShippingController@MonthlyShippingScheduleStoreEmail')->name('shipping.store-final');
+    Route::post('StatusChangeRequestPost', 'ShippingController@StatusChangeRequestPost')->name('shipping.request-change');
+    Route::post('ChangeRequestEmail', 'ShippingController@ChangeRequestEmail')->name('statusChangeRequest');
+    Route::post('Discharge-Change-Request', 'ShippingController@DischargePost')->name('shipping.discharge-change');
+    Route::post('DischargeAjax', 'ShippingController@DischargeAjax')->name('DischargeAjax');
+    Route::post('UnpluggingAjax', 'ShippingController@UnpluggingAjax')->name('UnpluggingAjax');
+    Route::post('Reefer-Unplugging-Request', 'ShippingController@ReeferUnpluggingRequestPost')->name('shipping.unplugging-change');
 
     Route::resource('users', 'UsersManagementController', [
         'names' => [

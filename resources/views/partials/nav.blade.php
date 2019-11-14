@@ -1,661 +1,255 @@
-{{--<nav class="navbar navbar-expand-md navbar-light navbar-laravel">--}}
-{{--    <div class="container">--}}
-{{--        <a class="navbar-brand" href="{{ url('/') }}">--}}
-{{--            {!! config('app.name', trans('titles.app')) !!}--}}
-{{--        </a>--}}
-{{--        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">--}}
-{{--            <span class="navbar-toggler-icon"></span>--}}
-{{--            <span class="sr-only">{!! trans('titles.toggleNav') !!}</span>--}}
-{{--        </button>--}}
-{{--        <div class="collapse navbar-collapse" id="navbarSupportedContent">--}}
-{{--            --}}{{-- Left Side Of Navbar --}}
-{{--            <ul class="navbar-nav mr-auto">--}}
-{{--                @role('admin')--}}
-{{--                    <li class="nav-item dropdown">--}}
-{{--                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--}}
-{{--                            {!! trans('titles.adminDropdownNav') !!}--}}
-{{--                        </a>--}}
-{{--                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">--}}
-{{--                            <a class="dropdown-item {{ (Request::is('roles') || Request::is('permissions')) ? 'active' : null }}" href="{{ route('laravelroles::roles.index') }}">--}}
-{{--                                {!! trans('titles.laravelroles') !!}--}}
-{{--                            </a>--}}
-{{--                            <div class="dropdown-divider"></div>--}}
-{{--                            <a class="dropdown-item {{ Request::is('users', 'users/' . Auth::user()->id, 'users/' . Auth::user()->id . '/edit') ? 'active' : null }}" href="{{ url('/users') }}">--}}
-{{--                                {!! trans('titles.adminUserList') !!}--}}
-{{--                            </a>--}}
-{{--                            <div class="dropdown-divider"></div>--}}
-{{--                            <a class="dropdown-item {{ Request::is('users/create') ? 'active' : null }}" href="{{ url('/users/create') }}">--}}
-{{--                                {!! trans('titles.adminNewUser') !!}--}}
-{{--                            </a>--}}
-{{--                            <div class="dropdown-divider"></div>--}}
-{{--                            <a class="dropdown-item {{ Request::is('monthly-shipping-schedule') ? 'active' : null }}" href="{{ url('/Monthly-shipping-schedule') }}">--}}
-{{--                                Monthly Shipping Schedule--}}
-{{--                            </a>--}}
-{{--                            <div class="dropdown-divider"></div>--}}
-{{--                            <a class="dropdown-item {{ Request::is('Vessel-Berthing-Application') ? 'active' : null }}" href="{{ url('/Vessel-Berthing-Application') }}">--}}
-{{--                                Vessel Berthing Application--}}
-{{--                            </a>--}}
-{{--                            <div class="dropdown-divider"></div>--}}
-{{--                            <a class="dropdown-item {{ Request::is('themes','themes/create') ? 'active' : null }}" href="{{ url('/themes') }}">--}}
-{{--                                {!! trans('titles.adminThemesList') !!}--}}
-{{--                            </a>--}}
-{{--                            <div class="dropdown-divider"></div>--}}
-{{--                            <a class="dropdown-item {{ Request::is('logs') ? 'active' : null }}" href="{{ url('/logs') }}">--}}
-{{--                                {!! trans('titles.adminLogs') !!}--}}
-{{--                            </a>--}}
-{{--                            <div class="dropdown-divider"></div>--}}
-{{--                            <a class="dropdown-item {{ Request::is('activity') ? 'active' : null }}" href="{{ url('/activity') }}">--}}
-{{--                                {!! trans('titles.adminActivity') !!}--}}
-{{--                            </a>--}}
-{{--                            <div class="dropdown-divider"></div>--}}
-{{--                            <a class="dropdown-item {{ Request::is('phpinfo') ? 'active' : null }}" href="{{ url('/phpinfo') }}">--}}
-{{--                                {!! trans('titles.adminPHP') !!}--}}
-{{--                            </a>--}}
-{{--                            <div class="dropdown-divider"></div>--}}
-{{--                            <a class="dropdown-item {{ Request::is('routes') ? 'active' : null }}" href="{{ url('/routes') }}">--}}
-{{--                                {!! trans('titles.adminRoutes') !!}--}}
-{{--                            </a>--}}
-{{--                            <div class="dropdown-divider"></div>--}}
-{{--                            <a class="dropdown-item {{ Request::is('active-users') ? 'active' : null }}" href="{{ url('/active-users') }}">--}}
-{{--                                {!! trans('titles.activeUsers') !!}--}}
-{{--                            </a>--}}
-{{--                            <div class="dropdown-divider"></div>--}}
-{{--                            <a class="dropdown-item {{ Request::is('blocker') ? 'active' : null }}" href="{{ route('laravelblocker::blocker.index') }}">--}}
-{{--                                {!! trans('titles.laravelBlocker') !!}--}}
-{{--                            </a>--}}
-{{--                        </div>--}}
-{{--                    </li>--}}
-{{--                @endrole--}}
-{{--            </ul>--}}
-{{--            --}}{{-- Right Side Of Navbar --}}
-{{--            <ul class="navbar-nav ml-auto">--}}
-{{--                --}}{{-- Authentication Links --}}
-{{--                @guest--}}
-{{--                    <li><a class="nav-link" href="{{ route('login') }}">{{ trans('titles.login') }}</a></li>--}}
-{{--                    <li><a class="nav-link" href="{{ route('register') }}">{{ trans('titles.register') }}</a></li>--}}
-{{--                @else--}}
-{{--                    <li class="nav-item dropdown">--}}
-{{--                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>--}}
-{{--                            @if ((Auth::User()->profile) && Auth::user()->profile->avatar_status == 1)--}}
-{{--                                <img src="{{ Auth::user()->profile->avatar }}" alt="{{ Auth::user()->name }}" class="user-avatar-nav">--}}
-{{--                            @else--}}
-{{--                                <div class="user-avatar-nav"></div>--}}
-{{--                            @endif--}}
-{{--                            {{ Auth::user()->name }} <span class="caret"></span>--}}
-{{--                        </a>--}}
-{{--                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">--}}
-{{--                            <a class="dropdown-item {{ Request::is('profile/'.Auth::user()->name, 'profile/'.Auth::user()->name . '/edit') ? 'active' : null }}" href="{{ url('/profile/'.Auth::user()->name) }}">--}}
-{{--                                {!! trans('titles.profile') !!}--}}
-{{--                            </a>--}}
-{{--                            <div class="dropdown-divider"></div>--}}
-{{--                            <a class="dropdown-item" href="{{ route('logout') }}"--}}
-{{--                               onclick="event.preventDefault();--}}
-{{--                                             document.getElementById('logout-form').submit();">--}}
-{{--                                {{ __('Logout') }}--}}
-{{--                            </a>--}}
-{{--                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">--}}
-{{--                                @csrf--}}
-{{--                            </form>--}}
-{{--                        </div>--}}
-{{--                    </li>--}}
-{{--                @endguest--}}
-{{--            </ul>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-{{--</nav>--}}
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="index3.html" class="brand-link">
+        <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+             style="opacity: .8">
+        <span class="brand-text font-weight-light">Vessel Operations</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <!-- Sidebar user panel (optional) -->
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+            <div class="image">
+                <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+            </div>
+            <div class="info">
+                <a href="#" class="d-block">{{{ Auth::user()->first_name }}} - {{{ Auth::user()->last_name }}}</a>
+            </div>
+        </div>
+
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <!-- Add icons to the links using the .nav-icon class
+                     with font-awesome or any other icon font library -->
+                <li class="nav-item has-treeview menu-open">
+                    <a href="" class="nav-link active">
+
+                        <p>
+                            Dashboard
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+
+                </li>
 
 
-{{--<nav class="navbar navbar-expand-md navbar-light navbar-laravel">--}}
-{{--    <div class="container">--}}
-{{--        <a class="navbar-brand" href="{{ url('/') }}">--}}
-{{--            Traccular Admin--}}
-{{--        </a>--}}
-{{--        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">--}}
-{{--            <span class="navbar-toggler-icon"></span>--}}
-{{--            <span class="sr-only">{!! trans('titles.toggleNav') !!}</span>--}}
-{{--        </button>--}}
-{{--        <div class="collapse navbar-collapse" id="navbarSupportedContent">--}}
-{{--            --}}{{-- Left Side Of Navbar --}}
-{{--            <ul class="navbar-nav mr-auto">--}}
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-tree"></i>
+                        <p>
+                            Forms
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="/Monthly-shipping-schedule" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Agents Monthly Shipping Schedule</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="Status-Change-Request" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Cargo Status Change Request</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="Discharge-Change-Request" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Port Of Discharge Change Request</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/Reefer-Unplugging-Request" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Reefer Unplugging Request</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/Vessel-Berthing-Application" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Vessel Berthing Application</p>
+                            </a>
+                        </li>
 
+                        <li class="nav-item">
+                            <a href="pages/UI/navbar.html" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Domestic Reefer Plugging Request</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pages/UI/timeline.html" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Cargo Receiving Request</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pages/UI/ribbons.html" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>On Carrier Change Request</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pages/UI/ribbons.html" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Berthing Window application</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pages/UI/ribbons.html" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Vessel Deposit Form</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
 
-{{--                @role('admin')--}}
+            </ul>
+        </nav>
+        <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+</aside>
 
-{{--                <li class="nav-item dropdown">--}}
-{{--                    <a  class="nav-link dropdown-toggle" href="/home" id="navbarDropdown" role="button" data-toggle=" " aria-haspopup="true" aria-expanded="false">--}}
-{{--                        Home--}}
-{{--                    </a>--}}
-
-{{--                </li>--}}
-{{--                <li class="nav-item dropdown">--}}
-{{--                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--}}
-{{--                        Branch--}}
-{{--                    </a>--}}
-{{--                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">--}}
-
-
-{{--                        <a class="dropdown-item" href="{{ url('/organization/branch') }}">--}}
-{{--                            {!! trans('titles.branchList') !!}--}}
-{{--                        </a>--}}
-
-{{--                        <div class="dropdown-divider"></div>--}}
-{{--                        <a class="dropdown-item" href="{{ url('/organization/branch/create') }}">--}}
-{{--                            {!! trans('titles.createBranch') !!}--}}
-{{--                        </a>--}}
-{{--                        <div class="dropdown-divider"></div>--}}
-{{--                        <a class="dropdown-item" href="{{ url('branch-type') }}">--}}
-{{--                            {!! trans('titles.BranchTypes') !!}--}}
-{{--                        </a>--}}
-
-{{--                    </div>--}}
-{{--                </li>--}}
-{{--                <li class="nav-item dropdown">--}}
-{{--                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--}}
-{{--                        Divisions--}}
-{{--                    </a>--}}
-{{--                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">--}}
-
-
-{{--                        <a class="dropdown-item" href="{{ url('/branch-divisions') }}">--}}
-{{--                            List Divisions--}}
-{{--                        </a>--}}
-
-{{--                        <div class="dropdown-divider"></div>--}}
-{{--                        <a class="dropdown-item" href="{{ url('/branch-division-create') }}">--}}
-{{--                            Create Division--}}
-{{--                        </a>--}}
-
-
-{{--                    </div>--}}
-{{--                </li>--}}
-{{--                <li class="nav-item dropdown">--}}
-{{--                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--}}
-{{--                        Facilities--}}
-{{--                    </a>--}}
-{{--                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">--}}
-
-
-{{--                        <a class="dropdown-item" href="{{ url('/branch-facilities') }}">--}}
-{{--                            List Facilities--}}
-{{--                        </a>--}}
-
-{{--                        <div class="dropdown-divider"></div>--}}
-{{--                        <a class="dropdown-item" href="{{ url('/branch-facility-create') }}">--}}
-{{--                            Create Facility--}}
-{{--                        </a>--}}
-
-
-{{--                    </div>--}}
-{{--                </li>--}}
-{{--                <li class="nav-item dropdown">--}}
-{{--                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--}}
-{{--                        Assets--}}
-{{--                    </a>--}}
-{{--                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">--}}
-{{--                        <a class="dropdown-item" href="{{ url('/branch-asset-create') }}">--}}
-{{--                            Create Assets--}}
-{{--                        </a>--}}
-{{--                    </div>--}}
-{{--                </li>--}}
-
-{{--                <li class="nav-item dropdown">--}}
-{{--                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--}}
-{{--                        Projects--}}
-{{--                    </a>--}}
-{{--                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">--}}
-{{--                        <a class="dropdown-item" href="{{ url('/projects/create') }}">--}}
-{{--                            Create Project--}}
-{{--                        </a>--}}
-{{--                        <div class="dropdown-divider"></div>--}}
-{{--                        <a class="dropdown-item" href="{{ url('/projects') }}">--}}
-{{--                            List Projects--}}
-{{--                        </a>--}}
-{{--                    </div>--}}
-{{--                </li>--}}
-{{--                <li class="nav-item dropdown">--}}
-{{--                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--}}
-{{--                        Teams--}}
-{{--                    </a>--}}
-{{--                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">--}}
-{{--                        <a class="dropdown-item" href="{{ url('/teams/create') }}">--}}
-{{--                            Create Project--}}
-{{--                        </a>--}}
-{{--                        <div class="dropdown-divider"></div>--}}
-{{--                        <a class="dropdown-item" href="{{ url('/teams') }}">--}}
-{{--                            List Teams--}}
-{{--                        </a>--}}
-{{--                    </div>--}}
-{{--                </li>--}}
-
-{{--                @endrole--}}
-{{--                @role('user')--}}
-{{--                <li class="nav-item dropdown">--}}
-{{--                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--}}
-{{--                        User Menu--}}
-{{--                    </a>--}}
-{{--                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">--}}
-
-{{--                        <a class="dropdown-item {{ Request::is('routes') ? 'active' : null }}" href="{{ url('/visitor-create') }}">--}}
-{{--                            {!! trans('titles.visitorCreate') !!}--}}
-{{--                        </a>--}}
-{{--                        <a class="dropdown-item {{ Request::is('routes') ? 'active' : null }}" href="{{ url('/meeting-create') }}">--}}
-{{--                            {!! trans('titles.meetingCreate') !!}--}}
-{{--                        </a>--}}
-{{--                        <a class="dropdown-item {{ Request::is('routes') ? 'active' : null }}" href="{{ url('/meeting-list') }}">--}}
-{{--                            {!! trans('titles.meetingList') !!}--}}
-{{--                        </a>--}}
-{{--                        <a class="dropdown-item {{ Request::is('routes') ? 'active' : null }}" href="{{ url('/parking-request') }}">--}}
-{{--                            Parking Request--}}
-{{--                        </a>--}}
-
-{{--                    </div>--}}
-{{--                </li>--}}
-
-{{--                @endrole--}}
-{{--                @role('employee')--}}
-{{--                <li class="nav-item dropdown">--}}
-{{--                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--}}
-{{--                        Employee Menu--}}
-{{--                    </a>--}}
-{{--                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">--}}
-
-{{--                        <a class="dropdown-item {{ Request::is('routes') ? 'active' : null }}" href="{{ url('/home') }}">--}}
-{{--                            Home--}}
-{{--                        </a>--}}
-{{--                        <a class="dropdown-item {{ Request::is('routes') ? 'active' : null }}" href="{{ url('/meeting-create') }}">--}}
-{{--                            {!! trans('titles.meetingCreate') !!}--}}
-{{--                        </a>--}}
-
-
-{{--                    </div>--}}
-{{--                </li>--}}
-
-{{--                @endrole--}}
-{{--            </ul>--}}
-{{--            --}}{{-- Right Side Of Navbar --}}
-{{--            <ul class="navbar-nav ml-auto">--}}
-{{--                --}}{{-- Authentication Links --}}
-{{--                @guest--}}
-{{--                    <li><a class="nav-link" href="{{ route('login') }}">{{ trans('titles.login') }}</a></li>--}}
-{{--                    <li><a class="nav-link" href="{{ route('register') }}">{{ trans('titles.register') }}</a></li>--}}
-{{--                @else--}}
-{{--                    <li class="nav-item dropdown">--}}
-{{--                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>--}}
-{{--                            @if ((Auth::User()->profile) && Auth::user()->profile->avatar_status == 1)--}}
-{{--                                <img src="{{ Auth::user()->profile->avatar }}" alt="{{ Auth::user()->name }}" class="user-avatar-nav">--}}
-{{--                            @else--}}
-{{--                                <div class="user-avatar-nav"></div>--}}
-{{--                            @endif--}}
-{{--                            {{ Auth::user()->name }} <span class="caret"></span>--}}
-{{--                        </a>--}}
-{{--                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">--}}
-{{--                            <a class="dropdown-item {{ Request::is('profile/'.Auth::user()->name, 'profile/'.Auth::user()->name . '/edit') ? 'active' : null }}" href="{{ url('/profile/'.Auth::user()->name) }}">--}}
-{{--                                {!! trans('titles.profile') !!}--}}
-{{--                            </a>--}}
-{{--                            <div class="dropdown-divider"></div>--}}
-{{--                            <a class="dropdown-item" href="{{ route('logout') }}"--}}
-{{--                               onclick="event.preventDefault();--}}
-{{--                                             document.getElementById('logout-form').submit();">--}}
-{{--                                {{ __('Logout') }}--}}
-{{--                            </a>--}}
-{{--                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">--}}
-{{--                                @csrf--}}
-{{--                            </form>--}}
-{{--                        </div>--}}
-{{--                    </li>--}}
-{{--                @endguest--}}
-{{--            </ul>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-{{--</nav>--}}
-
-
-@role('admin')
-<nav class="sidebar sidebar-offcanvas" id="sidebar">
-    <ul class="nav">
+<nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
         <li class="nav-item">
-            <a class="nav-link" href="{{ url('/home') }}">
-                <i class="mdi mdi-home-outline menu-icon"></i>
-                <span  class="menu-title">Home</span>
-            </a>
+            <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-                <i class="mdi mdi-source-fork menu-icon"></i>
-                <span class="menu-title">Monthly Shipping</span>
-                <i class="menu-arrow"></i>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="index3.html" class="nav-link">Home</a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="#" class="nav-link">Contact</a>
+        </li>
+    </ul>
+
+    <!-- SEARCH FORM -->
+    <form class="form-inline ml-3">
+        <div class="input-group input-group-sm">
+            <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+            <div class="input-group-append">
+                <button class="btn btn-navbar" type="submit">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+    </form>
+
+    <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto">
+        <!-- Messages Dropdown Menu -->
+        <li class="nav-item dropdown">
+            <a class="nav-link" data-toggle="dropdown" href="#">
+                <i class="far fa-comments"></i>
+                <span class="badge badge-danger navbar-badge">3</span>
             </a>
-            <div class="collapse" id="ui-basic">
-                <ul class="nav flex-column sub-menu">
-                    <li  class="nav-item"> <a class="nav-link" href="{{ url('/Monthly-shipping-schedule') }}">Agents Monthly Shipping Schedule</a></li>
-{{--                    <li class="nav-item"> <a class="nav-link" href="{{ url('/organization/branch/create') }}">Create Branch</a></li>--}}
-{{--                    <li class="nav-item"> <a class="nav-link" href="{{ url('branch-type') }}">Branch Types</a></li>--}}
-                </ul>
+            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                <a href="#" class="dropdown-item">
+                    <!-- Message Start -->
+                    <div class="media">
+                        <img src="dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+                        <div class="media-body">
+                            <h3 class="dropdown-item-title">
+                                Brad Diesel
+                                <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
+                            </h3>
+                            <p class="text-sm">Call me whenever you can...</p>
+                            <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+                        </div>
+                    </div>
+                    <!-- Message End -->
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item">
+                    <!-- Message Start -->
+                    <div class="media">
+                        <img src="dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+                        <div class="media-body">
+                            <h3 class="dropdown-item-title">
+                                John Pierce
+                                <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
+                            </h3>
+                            <p class="text-sm">I got your message bro</p>
+                            <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+                        </div>
+                    </div>
+                    <!-- Message End -->
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item">
+                    <!-- Message Start -->
+                    <div class="media">
+                        <img src="dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+                        <div class="media-body">
+                            <h3 class="dropdown-item-title">
+                                Nora Silvester
+                                <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
+                            </h3>
+                            <p class="text-sm">The subject goes here</p>
+                            <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+                        </div>
+                    </div>
+                    <!-- Message End -->
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
             </div>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-                <i class="mdi mdi-account-box-outline"></i>
-                <span class="menu-title" >Role Management</span>
-                <i class="menu-arrow"></i>
+        <!-- Notifications Dropdown Menu -->
+        <li class="nav-item dropdown">
+            <a class="nav-link" data-toggle="dropdown" href="#">
+                <i class="far fa-bell"></i>
+                <span class="badge badge-warning navbar-badge">15</span>
             </a>
-            <div class="collapse" id="ui-basic">
-                <ul class="nav flex-column sub-menu">
-                    <li  class="nav-item"> <a class="nav-link" href="{{ url('/roles') }}">Manage Roles</a></li>
-                    {{--                    <li class="nav-item"> <a class="nav-link" href="{{ url('/organization/branch/create') }}">Create Branch</a></li>--}}
-                    {{--                    <li class="nav-item"> <a class="nav-link" href="{{ url('branch-type') }}">Branch Types</a></li>--}}
-                </ul>
+            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                <span class="dropdown-item dropdown-header">15 Notifications</span>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item">
+                    <i class="fas fa-envelope mr-2"></i> 4 new messages
+                    <span class="float-right text-muted text-sm">3 mins</span>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item">
+                    <i class="fas fa-users mr-2"></i> 8 friend requests
+                    <span class="float-right text-muted text-sm">12 hours</span>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item">
+                    <i class="fas fa-file mr-2"></i> 3 new reports
+                    <span class="float-right text-muted text-sm">2 days</span>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
             </div>
         </li>
-{{--        <li class="nav-item">--}}
-{{--            <a class="nav-link" data-toggle="collapse" href="#ui-advanced" aria-expanded="false" aria-controls="ui-advanced">--}}
-{{--                <i class="mdi mdi-grid-large menu-icon"></i>--}}
-{{--                <span class="menu-title">Divisions</span>--}}
-{{--                <i class="menu-arrow"></i>--}}
-{{--            </a>--}}
-{{--            <div class="collapse" id="ui-advanced">--}}
-{{--                <ul class="nav flex-column sub-menu">--}}
-{{--                    <li class="nav-item"> <a class="nav-link" href="{{ url('/branch-divisions') }}">List Divisions</a></li>--}}
-{{--                    <li class="nav-item"> <a class="nav-link" href="{{ url('/branch-division-create') }}">Create Division</a></li>--}}
-{{--                </ul>--}}
-{{--            </div>--}}
-{{--        </li>--}}
-{{--        <li class="nav-item">--}}
-{{--            <a class="nav-link" data-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements">--}}
-{{--                <i class="mdi mdi-bookmark-plus-outline menu-icon"></i>--}}
-{{--                <span class="menu-title">Facilities</span>--}}
-{{--                <i class="menu-arrow"></i>--}}
-{{--            </a>--}}
-{{--            <div class="collapse" id="form-elements">--}}
-{{--                <ul class="nav flex-column sub-menu">--}}
-{{--                    <li class="nav-item"><a class="nav-link" href="{{ url('/branch-facilities') }}">List Facilities</a></li>--}}
-{{--                    <li class="nav-item"><a class="nav-link" href="{{ url('/branch-facility-create') }}">Create Facility</a></li>--}}
-{{--                </ul>--}}
-{{--            </div>--}}
-{{--        </li>--}}
-{{--        <li class="nav-item">--}}
-{{--            <a class="nav-link" data-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements">--}}
-{{--                <i class="mdi mdi-office-building menu-icon"></i>--}}
-{{--                <span class="menu-title">Floors</span>--}}
-{{--                <i class="menu-arrow"></i>--}}
-{{--            </a>--}}
-{{--            <div class="collapse" id="form-elements">--}}
-{{--                <ul class="nav flex-column sub-menu">--}}
-{{--                    <li class="nav-item"><a class="nav-link" href="{{ url('/create-floor') }}">Create Floors</a></li>--}}
-{{--                    <li class="nav-item"><a class="nav-link" href="{{ url('/list-floors') }}">List Floors</a></li>--}}
-{{--                </ul>--}}
-{{--            </div>--}}
-{{--        </li>--}}
-{{--        <li class="nav-item">--}}
-{{--            <a class="nav-link" data-toggle="collapse" href="#editors" aria-expanded="false" aria-controls="editors">--}}
-{{--                <i class="mdi mdi-shape-polygon-plus menu-icon"></i>--}}
-{{--                <span class="menu-title">Assets</span>--}}
-{{--                <i class="menu-arrow"></i>--}}
-{{--            </a>--}}
-{{--            <div class="collapse" id="editors">--}}
-{{--                <ul class="nav flex-column sub-menu">--}}
-{{--                    <li class="nav-item"><a class="nav-link" href="{{ url('/branch-asset-create') }}">Create Assets</a></li>--}}
-{{--                    <li class="nav-item"><a class="nav-link" href="{{ url('/asset-list') }}">List Assets</a></li>--}}
-{{--                </ul>--}}
-{{--            </div>--}}
-{{--        </li>--}}
-{{--        <li class="nav-item">--}}
-{{--            <a class="nav-link" data-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">--}}
-{{--                <i class="mdi mdi-folder-multiple-outline menu-icon"></i>--}}
-{{--                <span class="menu-title">Projects</span>--}}
-{{--                <i class="menu-arrow"></i>--}}
-{{--            </a>--}}
-{{--            <div class="collapse" id="charts">--}}
-{{--                <ul class="nav flex-column sub-menu">--}}
-{{--                    <li class="nav-item"> <a class="nav-link" href="{{ url('/projects/create') }}">Create Project</a></li>--}}
-{{--                    <li class="nav-item"> <a class="nav-link" href="{{ url('/projects') }}">List Projects</a></li>--}}
-{{--                </ul>--}}
-{{--            </div>--}}
-{{--        </li>--}}
-{{--        <li class="nav-item">--}}
-{{--            <a class="nav-link" data-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="tables">--}}
-{{--                <i class="mdi mdi-account-multiple-outline menu-icon"></i>--}}
-{{--                <span class="menu-title">Teams</span>--}}
-{{--                <i class="menu-arrow"></i>--}}
-{{--            </a>--}}
-{{--            <div class="collapse" id="tables">--}}
-{{--                <ul class="nav flex-column sub-menu">--}}
-{{--                    <li class="nav-item"> <a class="nav-link" href="{{ url('/teams/create') }}">Create Team</a></li>--}}
-{{--                    <li class="nav-item"> <a class="nav-link" href="{{ url('/teams') }}">List Teams</a></li>--}}
-{{--                </ul>--}}
-{{--            </div>--}}
-{{--        </li>--}}
-{{--        <li class="nav-item">--}}
-{{--            <a class="nav-link" data-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="tables">--}}
-{{--                <i class="mdi mdi-account-multiple-outline menu-icon"></i>--}}
-{{--                <span class="menu-title">Users</span>--}}
-{{--                <i class="menu-arrow"></i>--}}
-{{--            </a>--}}
-{{--            <div class="collapse" id="tables">--}}
-{{--                <ul class="nav flex-column sub-menu">--}}
-{{--                    <li class="nav-item"> <a class="nav-link" href="{{ url('/users') }}">List Users</a></li>--}}
 
-{{--                </ul>--}}
-{{--            </div>--}}
-{{--        </li>--}}
-{{--        <li class="nav-item">--}}
-{{--            <a class="nav-link" data-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="tables">--}}
-{{--                <i class="mdi mdi-account-multiple-outline menu-icon"></i>--}}
-{{--                <span class="menu-title">Notifications</span>--}}
-{{--                <i class="menu-arrow"></i>--}}
-{{--            </a>--}}
-{{--            <div class="collapse" id="tables">--}}
-{{--                <ul class="nav flex-column sub-menu">--}}
-{{--                    <li class="nav-item"> <a class="nav-link" href="{{ url('/sms_templates') }}">SMS Templates</a></li>--}}
 
-{{--                </ul>--}}
-{{--            </div>--}}
-{{--        </li>--}}
-{{--        <li class="nav-item">--}}
-{{--            <a class="nav-link" data-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="tables">--}}
-{{--                <i class="mdi mdi-account-multiple-outline menu-icon"></i>--}}
-{{--                <span class="menu-title">Reports</span>--}}
-{{--                <i class="menu-arrow"></i>--}}
-{{--            </a>--}}
-{{--            <div class="collapse" id="tables">--}}
-{{--                <ul class="nav flex-column sub-menu">--}}
-{{--                    <li  class="nav-item"> <a class="nav-link" href="{{ url('/visitor-summary') }}">Visitor Summary Report</a></li>--}}
-{{--                    <li  class="nav-item"> <a class="nav-link" href="{{ url('/visitor-details-report') }}">Visitor Details Report</a></li>--}}
-{{--                    <li  class="nav-item"> <a class="nav-link" href="{{ url('/violation-report') }}">Violation report</a></li>--}}
+            <li class="nav-item nav-profile dropdown">
+                <a class="nav-link" href="#" data-toggle="dropdown" id="profileDropdown">
+                    <img src="https://via.placeholder.com/30x30" alt="profile" />
+                </a>
+                <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
+                    <a href="profile/{{{ isset(Auth::user()->name) ? Auth::user()->name:''}}}" class="dropdown-item">
+                        <i class="mdi mdi-account "></i>
+                        Profile
+                    </a>
+                    <a href="{{ route('logout') }}" class="dropdown-item" onclick="event.preventDefault();
+                                             document.getElementById('logout-form').submit();">
 
-{{--                </ul>--}}
-{{--            </div>--}}
-{{--        </li>--}}
-
+                        <i href="{{ route('logout') }}" class="mdi mdi-logout"></i>
+                        Logout
+                    </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                </div>
+            </li>
 
     </ul>
 </nav>
-@endrole
-
-@role('user')
-
-<nav class="sidebar sidebar-offcanvas" id="sidebar">
-    <ul class="nav">
-        <li class="nav-item">
-            <a class="nav-link" href="{{ url('/home') }}">
-                <i class="mdi mdi-home-outline menu-icon"></i>
-                <span  class="menu-title">Home</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-                <i class="mdi mdi-account-circle-outline menu-icon"></i>
-                <span class="menu-title">Visitor</span>
-                <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="ui-basic">
-                <ul class="nav flex-column sub-menu">
-                    <li  class="nav-item"> <a class="nav-link" href="{{ url('/visitor-create') }}">Create Visitor</a></li>
-                    <li  class="nav-item"> <a class="nav-link" href="{{ url('/visitor-list') }}">List Visitors</a></li>
-                    <li  class="nav-item"> <a class="nav-link" href="{{ url('/current-visitors') }}">Current Visitors</a></li>
-                    <li  class="nav-item"> <a class="nav-link" href="{{ url('/visitor-summary') }}">Visitor Summary Report</a></li>
-                    <li  class="nav-item"> <a class="nav-link" href="{{ url('/visitor-details-report') }}">Visitor Details Report</a></li>
-                    <li  class="nav-item"> <a class="nav-link" href="{{ url('/violation-report') }}">Violation report</a></li>
-
-                </ul>
-            </div>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-                <i class="mdi mdi-clock-outline menu-icon"></i>
-                <span class="menu-title">Meeting</span>
-                <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="ui-basic">
-                <ul class="nav flex-column sub-menu">
-                    <li  class="nav-item"> <a class="nav-link" href="{{ url('/meeting-create') }}">Create Meeting</a></li>
-                    <li  class="nav-item"> <a class="nav-link" href="{{ url('/all-meeting-list') }}">List Meeting</a></li>
-                    <li  class="nav-item"> <a class="nav-link" href="{{ url('/parking-request') }}">Parking Request</a></li>
-
-                </ul>
-            </div>
-        </li>
-    </ul>
-</nav>
-
-@endrole
-
-@role('meeting_room')
-
-<nav class="sidebar sidebar-offcanvas" id="sidebar">
-    <ul class="nav">
-
-
-
-
-    </ul>
-</nav>
-
-
-@endrole
-
-@role('employee')
-<nav class="sidebar sidebar-offcanvas" id="sidebar">
-    <ul class="nav">
-        <li class="nav-item">
-            <a class="nav-link" href="{{ url('/home') }}">
-                <i class="mdi mdi-home-outline menu-icon"></i>
-                <span  class="menu-title">Home</span>
-            </a>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-                <i class="mdi mdi-clock-outline menu-icon"></i>
-                <span class="menu-title">Meeting</span>
-                <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="ui-basic">
-                <ul class="nav flex-column sub-menu">
-                    <li  class="nav-item"> <a class="nav-link" href="{{ url('/meeting-create-project') }}">Create Meeting</a></li>
-                    <li  class="nav-item"> <a class="nav-link" href="{{ url('/meeting-list') }}">List Meeting</a></li>
-                    <li  class="nav-item"> <a class="nav-link" href="{{ url('/meeting-pending') }}">Pending Meeting</a></li>
-
-
-                </ul>
-            </div>
-
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
-                <i class="mdi mdi-folder-multiple-outline menu-icon"></i>
-                <span class="menu-title">Projects</span>
-                <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="charts">
-                <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="{{ url('/projects/create') }}">Create Project</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="{{ url('/projects') }}">List Projects</a></li>
-                </ul>
-            </div>
-        </li>
-    </ul>
-</nav>
-
-@endrole
-
-@role('project')
-
-<nav class="sidebar sidebar-offcanvas" id="sidebar">
-    <ul class="nav">
-        <li class="nav-item">
-            <a class="nav-link" href="{{ url('/home') }}">
-                <i class="mdi mdi-home-outline menu-icon"></i>
-                <span  class="menu-title">Home</span>
-            </a>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#dsmyvendorsd" aria-expanded="false" aria-controls="ui-basic">
-                <i class="mdi mdi-source-fork menu-icon"></i>
-                <span class="menu-title">Vendors</span>
-                <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="dsmyvendorsd">
-                <ul class="nav flex-column sub-menu">
-                    <li  class="nav-item"> <a class="nav-link" href="{{ url('/vendor-create') }}">Create Vendor</a></li>
-                    <li  class="nav-item"> <a class="nav-link" href="{{ url('/vendor-list') }}">List Vendors</a></li>
-                </ul>
-            </div>
-
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#myprojects" aria-expanded="false" aria-controls="charts">
-                <i class="mdi mdi-folder-multiple-outline menu-icon"></i>
-                <span class="menu-title">Projects</span>
-                <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="myprojects">
-                <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="{{ url('/my-projects') }}">My Projects</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="{{ url('/project-meetings') }}">Project Meetings</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="{{ url('/meeting-create-project') }}">Create Meetings</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="{{ url('/gate-pass') }}">Gate Pass Requests</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="{{ url('/gate-pass-create') }}">Create Gate Pass</a></li>
-                </ul>
-            </div>
-        </li>
-
-
-    </ul>
-</nav>
-@endrole
-
-@role('vendor')
-
-<nav class="sidebar sidebar-offcanvas" id="sidebar">
-    <ul class="nav">
-        <li class="nav-item">
-            <a class="nav-link" href="{{ url('/home') }}">
-                <i class="mdi mdi-home-outline menu-icon"></i>
-                <span  class="menu-title">Home</span>
-            </a>
-        </li>
-
-
-        <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#myprojects" aria-expanded="false" aria-controls="charts">
-                <i class="mdi mdi-clock-outline menu-icon"></i>
-                <span class="menu-title">Meetings</span>
-                <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="myprojects">
-                <ul class="nav flex-column sub-menu">
-
-                    <li class="nav-item"> <a class="nav-link" href="{{ url('/meeting-create-project') }}">Create Meetings</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="{{ url('/meeting-list-project') }}">List Meetings</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="{{ url('/gate-pass-request') }}">Gate Pass Requests</a></li>
-
-                </ul>
-            </div>
-        </li>
-
-
-    </ul>
-</nav>
-@endrole
