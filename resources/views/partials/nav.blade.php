@@ -14,7 +14,7 @@
                 <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">{{{ Auth::user()->first_name }}} - {{{ Auth::user()->last_name }}}</a>
+                <a href="#" class="d-block">{{{ isset(Auth::user()->name) ? Auth::user()->name : "" }}}</a>
             </div>
         </div>
 
@@ -69,6 +69,12 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a href="/On-Carrier-Change" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>On Carrier Change Request</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="/Vessel-Berthing-Application" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Vessel Berthing Application</p>
@@ -87,12 +93,7 @@
                                 <p>Cargo Receiving Request</p>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a href="pages/UI/ribbons.html" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>On Carrier Change Request</p>
-                            </a>
-                        </li>
+
                         <li class="nav-item">
                             <a href="pages/UI/ribbons.html" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>

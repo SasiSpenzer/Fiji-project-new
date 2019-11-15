@@ -116,6 +116,7 @@ Route::group(['middleware' => ['auth', 'activated', 'role:admin', 'activity', 't
     Route::get('Status-Change-Request', 'ShippingController@StatusChangeRequest')->name('Status-Change-Request');
     Route::get('Discharge-Change-Request', 'ShippingController@DischargeChangeRequest')->name('Discharge-Change-Request');
     Route::get('Reefer-Unplugging-Request', 'ShippingController@ReeferUnpluggingRequest')->name('Reefer-Unplugging-Request');
+    Route::get('On-Carrier-Change', 'ShippingController@OnCarrierChange')->name('On-Carrier-Change');
 
 
 
@@ -127,7 +128,10 @@ Route::group(['middleware' => ['auth', 'activated', 'role:admin', 'activity', 't
     Route::post('Discharge-Change-Request', 'ShippingController@DischargePost')->name('shipping.discharge-change');
     Route::post('DischargeAjax', 'ShippingController@DischargeAjax')->name('DischargeAjax');
     Route::post('UnpluggingAjax', 'ShippingController@UnpluggingAjax')->name('UnpluggingAjax');
+    Route::post('carrierAjax', 'ShippingController@carrierAjax')->name('carrierAjax');
+
     Route::post('Reefer-Unplugging-Request', 'ShippingController@ReeferUnpluggingRequestPost')->name('shipping.unplugging-change');
+    Route::post('On-Carrier-Change', 'ShippingController@OnCarrierChangePost')->name('shipping.carrier-change');
 
     Route::resource('users', 'UsersManagementController', [
         'names' => [

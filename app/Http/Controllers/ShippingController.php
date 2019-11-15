@@ -239,7 +239,55 @@ class ShippingController extends Controller
     }
 
     public function UnpluggingAjax(Request $request){
-        
+
+        $dataURL = $request->data;
+        $encoded_image = explode(",", $dataURL)[1];
+        $decoded_image = base64_decode($encoded_image);
+        file_put_contents("signature.png", $decoded_image);
+
+        $toAddress = "sasi.spenzer@gmail.com";
+        $template = 'emails.name';
+        $title = 'Shipping Schedule';
+        $subject = 'Shipping Schedule';
+
+        $response = $this->SendMail($toAddress,$template,$title,$subject,$link=null,$body = null);
+    }
+
+    public function OnCarrierChange(){
+
+        return view('shipping.On-Carrier-Change');
+    }
+
+    public function OnCarrierChangePost(Request $request){
+
+
+
+        $DataArray = array();
+
+        for($a=0;$a <= 20;$a++){
+
+            if(!empty($request->input('CN_'.$a.''))){
+
+                $tempArray = array();
+                $tempArray['CN'] = $request->input('CN_'.$a.'');
+                $tempArray['SIZE'] = $request->input('SIZE_'.$a.'');
+                $tempArray['Type'] = $request->input('Type_'.$a.'');
+                $tempArray['RCF'] = $request->input('RCF_'.$a.'');
+                $tempArray['RCT'] = $request->input('RCT'.$a.'');
+
+
+
+                array_push($DataArray,$tempArray);
+            }
+        }
+        // Set The Session By Spenzer
+        session(['carrier_request' => $DataArray]);
+
+        return view('shipping.carrier-request-review',compact('DataArray'));
+    }
+
+    public function carrierAjax(Request $request){
+
         $dataURL = $request->data;
         $encoded_image = explode(",", $dataURL)[1];
         $decoded_image = base64_decode($encoded_image);
